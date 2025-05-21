@@ -1,0 +1,94 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+.react-calendar {
+    width: auto !important;
+    border: none !important;
+    font-family: "Inter", sans-serif !important;
+    background-color: #2f4f4f !important;
+
+}
+
+.react-calendar__tile--active {
+    background-color: mediumslateblue !important;
+    color: black !important;
+    border-radius: 0.5rem !important;
+}
+
+.react-calendar__tile--now {
+    background-color: #374151 !important;
+    /* gray-700 */
+    color: white !important;
+    border-radius: 0.5rem;
+    /* Optional: rounded for consistency */
+}
+
+.react-calendar__tile--disabled {
+    color: #9ca3af !important;
+    /* gray-400 */
+}
+
+.react-calendar__tile:enabled:hover {
+    background-color: #2563eb !important;
+    /* blue-600 */
+    color: white !important;
+    border-radius: 0.5rem;
+}
+
+.react-calendar__month-view__days__day--weekend {
+    color: #f87171 !important;
+    /* red-400, or use gray if you want to mute them more */
+}
+
+.react-calendar__navigation__label_labelText {
+    font-weight: 600 !important;
+    color: blue !important;
+}
+
+.react-calendar__navigation {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 0.25rem !important;
+}
+
+.react-calendar__navigation button {
+    flex: 1 1 auto !important;
+    padding: 0.5rem !important;
+    min-width: 2rem !important;
+    font-size: 1rem !important;
+    background-color: transparent !important;
+    border: none !important;
+    color: white !important;
+    cursor: pointer !important;
+    transition: background-color 0.2s ease-in-out !important;
+}
+
+.react-calendar__navigation__label {
+    flex-grow: 2 !important;
+    text-align: center !important;
+    font-weight: 600 !important;
+    background-color: #e5e7eb !important;
+    /* gray-200 */
+    color: #1f2937 !important;
+    /* gray-800 */
+    border-radius: 0.375rem !important;
+    padding: 0.25rem 0.5rem !important;
+}
+
+/* Navigation buttons (<< < > >>) */
+.react-calendar__navigation button:hover {
+    background-color: #2563eb !important;
+    /* Tailwind blue-600 */
+    color: white !important;
+    border-radius: 0.375rem;
+    /* Optional: rounded corners */
+}
+
+/* Month/Year label hover */
+.react-calendar__navigation__label:hover {
+    background-color: #3b82f6 !important;
+    /* Tailwind blue-500 */
+    color: white !important;
+    cursor: pointer;
+}
