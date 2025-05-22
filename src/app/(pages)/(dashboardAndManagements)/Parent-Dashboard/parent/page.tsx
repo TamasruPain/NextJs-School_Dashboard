@@ -60,7 +60,7 @@ export default function ParentDashboardPage() {
                         <input type="checkbox" id="my_modal_7" className="modal-toggle" />
                         <div className="modal" role="dialog">
                             <div className="modal-box flex flex-col gap-5">
-                                <Link href={'/Admin-Dashboard/admin-profile'}
+                                <Link href={'/parent-Dashboard/parent-profile'}
                                     className="btn btn-ghost btn-soft 
                                     h-40 flex items-start justify-start p-5 gap-5          
                                     hover:shadow-2xl shadow-sky-500 "
