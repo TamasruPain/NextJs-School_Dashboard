@@ -1,12 +1,14 @@
 "use client"
 
-import { faBook, faBullhorn, faCalendarCheck, faChalkboard, faCircleUser, faCommentDots, faFilePen, faGear, faHouse, faListCheck, faPeopleLine, faPersonChalkboard, faScroll, faSquareCaretRight, faUserAstronaut, faUserGroup, faUsers } from "@fortawesome/free-solid-svg-icons"
+import { faBook, faBullhorn, faCalendarCheck, faChalkboard, faCircleUser, faCommentDots, faFilePen, faGear, faHouse, faListCheck, faPeopleLine, faPeopleRoof, faPersonChalkboard, faScroll, faSquareCaretRight, faUserAstronaut, faUserGroup, faUsers } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Link from "next/link"
 
 const menuItems = [
     {
-        title: "MENU",
+        title: "Next School",
+        titleIcon: <FontAwesomeIcon icon={faPeopleRoof} style={{ color: "#B197FC", }} />,
+        titleHref: "/",
         items: [
             {
                 icon: <FontAwesomeIcon icon={faCircleUser} style={{ color: "#B197FC", }} />,
@@ -57,7 +59,14 @@ export default function ParentSideNavbar() {
         <div className="text-sm">
             {menuItems.map((i) => (
                 <div className="flex flex-col gap-1" key={i.title}>
-                    <span className="hidden lg:block my-1">{i.title}</span>
+                    <Link href={i.titleHref} className="btn btn-ghost btn-outline hover:shadow-2xl shadow-sky-500 text-xl">
+                        <span>
+                            {i.titleIcon}
+                        </span>
+                        <span>
+                            {i.title}
+                        </span>
+                    </Link>
                     {i.items.map((item) => (
                         <Link href={item.href} key={item.label}
                             className="flex items-center justify-center lg:justify-start gap-2 py-2 

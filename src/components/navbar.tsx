@@ -4,19 +4,23 @@ import { faPeopleRoof, faSchoolCircleCheck, faUserAstronaut } from "@fortawesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useRouter } from 'next/navigation';
+
 
 export default function Navbar() {
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [url, setUrl] = useState<string | undefined>(undefined);
     // const [user, setUser] = useState('')
+    const route = useRouter();
 
     const user = "Tamasru";
     const role: "admin" | "teacher" | "student" | "parent" | string = "student";
 
     const notify = () => {
         setIsLoggedIn(false);
-        toast.success("Successfully Logged out !!")
+        route.push("/")
+        toast.success("Successfully Logged out 🎉")
     }
 
     const loginisClicked = () => {

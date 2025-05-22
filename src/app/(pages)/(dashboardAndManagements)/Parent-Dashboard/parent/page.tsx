@@ -1,6 +1,6 @@
 "use client"
 
-import { faBullhorn, faCommentDots, faUserTie } from "@fortawesome/free-solid-svg-icons";
+import { faBullhorn,faUserAstronaut } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import EventCalendar from "@/components/calendarCard";
@@ -10,6 +10,10 @@ import AnnouncementsCard from "@/components/announcementCard";
 import ClassesCard from "@/components/classesCard";
 import LessonsCard from "@/components/lessonsCard";
 import AssignmentsCard from "@/components/assignmentCard";
+import { useState } from "react";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
+
 
 
 export default function ParentDashboardPage() {
@@ -18,21 +22,71 @@ export default function ParentDashboardPage() {
     const LocalParentsAnnouncementUrl = "/Parent-Dashboard/view-announcements";
     const LocalParentsLessonsUrl = "/Parent-Dashboard/view-lessons";
     const LocalParentsAssignmentsUrl = "/Parent-Dashboard/view-assignments";
+
+    const user = "Tamasru";
+    const userRole = "Parent";
+    const userEmail = "tamasrupain@gmail.com"
+
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    const route = useRouter();
+
+    const notify = () => {
+        setIsLoggedIn(false);
+        route.push("/")
+        toast.success("Successfully Logged out 🎉")
+    }
+
     return (
         <div >
             {/* Box-1: Heading of dashboard */}
             {/* --------------------------------------------------------------------------- */}
-            <div className="flex ">
-                <div className="sm:w-[60%] md:w-[80%] lg:w-[80%] xl:w-[98%] ">
-                    <h1 className="text-2xl p-3 mx-3 my-2 font-bold">
-                        <FontAwesomeIcon icon={faUserTie} /> Parent Dashboard
+            <div className="flex">
+                <div className="sm:w-[60%] md:w-[60%] lg:w-[60%] xl:w-[80%]">
+                    <h1 className="text-2xl p-3 mx-3 my-2 font-bold hidden md:block lg:block xl:block">
+                        Parent Dashboard
                     </h1>
                 </div>
-                <div className="flex sm:w-[40%] md:w-[20%] lg:w-[20%] xl:w-[8%] p-4 gap-5 ">
-                    <Link href='Parent-Dashboard/view-announcements' className="indicator btn btn-circle btn-soft float-end hover:shadow-2xl shadow-sky-100">
-                        <FontAwesomeIcon icon={faBullhorn} style={{ fontSize: "15px" }} />
-                        <span className="indicator-item badge badge-primary">12</span>
-                    </Link>
+                <div className="flex sm:w-[40%] md:w-[20%] lg:w-[20%] xl:w-[20%] p-4">
+                    <div className="flex gap-5">
+
+                        {/* The button to open modal */}
+                        <label htmlFor="my_modal_7" className="btn btn-ghost btn-soft hover:shadow-2xl shadow-sky-500 ">
+                            <FontAwesomeIcon icon={faUserAstronaut} style={{ color: "#B197FC", }} />
+                            {user ? `${user}` : "Profile"}
+                            {""}
+                        </label>
+                        {/* Put this part before </body> tag */}
+                        <input type="checkbox" id="my_modal_7" className="modal-toggle" />
+                        <div className="modal" role="dialog">
+                            <div className="modal-box flex flex-col gap-5">
+                                <Link href={'/Admin-Dashboard/admin-profile'}
+                                    className="btn btn-ghost btn-soft 
+                                    h-40 flex items-start justify-start p-5 gap-5          
+                                    hover:shadow-2xl shadow-sky-500 "
+                                >
+                                    <div className="text-5xl ml-10 mt-8">
+                                        <FontAwesomeIcon icon={faUserAstronaut} style={{ color: "#B197FC", }} />
+                                    </div>
+                                    <div className="flex flex-col items-start justify-items-start ml-10 mt-5 gap-4">
+                                        <span>{user ? `${user}` : "Profile"}</span>
+                                        <span>{userEmail ? `${userEmail}` : "No Email found"}</span>
+                                        <span>{userRole ? `${userRole}` : "No Role found"}</span>
+                                    </div>
+                                </Link>
+                                <label className="btn btn-ghost btn-outline hover:shadow-2xl shadow-sky-500 "
+                                    onClick={notify}
+                                >
+                                    Logout
+                                </label>
+                            </div>
+                            <label className="modal-backdrop" htmlFor="my_modal_7">Close</label>
+                        </div>
+                        <Link href={"Parent-Dashboard/view-Announcement"} className="indicator btn btn-circle btn-soft me-10 float-end hover:shadow-2xl shadow-sky-100">
+                            <FontAwesomeIcon icon={faBullhorn} style={{ fontSize: "15px" }} />
+                            <span className="indicator-item badge badge-primary">12</span>
+                        </Link>
+                    </div>
                 </div>
             </div>
             {/* ---------------------------------------------------------------------------- */}
