@@ -28,16 +28,14 @@ export default function ManageAssignments() {
 
 
     return (
-        <div className="min-h-screen">
-            <div className="p-2 ">
-
-                <div className="p-4">
-                    <h1 className="text-2xl">
-                        <FontAwesomeIcon icon={faScroll} /> Assignments Management
-                    </h1>
-
+        <div className="h-screen">
+            <div className="p-4">
+                <h1 className="text-2xl p-2">
+                    <FontAwesomeIcon icon={faScroll} /> Assignments Management
+                </h1>
+                <div className="p-2 ">
                     {/* search bar */}
-                    <div className="flex items-center justify-center mt-5 gap-3">
+                    <div className="flex items-center justify-center mt-2 gap-3">
                         <input
                             type="search"
                             className="input bg-zinc-700 text-white placeholder:text-gray-400 hover:shadow-md shadow-sky-400 w-64 p-2 rounded"
@@ -53,11 +51,12 @@ export default function ManageAssignments() {
                         </button>
                     </div>
                     {/* add button */}
-                    <div className="flex items-center justify-between mt-5 ">
-                        <h1 className="text-2xl">All Assignments</h1>
+                    <div className="flex items-center justify-between mt-4 ">
+                        <h1 className="text-lg">Assignments ( {assignments.length} )</h1>
                         <a href="#my_modal_8" className="btn btn-soft">
                             <FontAwesomeIcon icon={faSquarePlus} /> Add new Assignment
                         </a>
+                        {/* Put this part before </body> tag */}
                         <div className="modal" role="dialog" id="my_modal_8">
                             <div className="modal-box">
                                 <div className="modal-action mt-1">
@@ -85,54 +84,49 @@ export default function ManageAssignments() {
                     </div>
                 </div>
 
-                {/* students table */}
-                <div className=" p-2 w-full ">
-                    <div className="overflow-x-auto rounded-xl hover:shadow-lg shadow-sky-200">
-                        <table className="table bg-base-100">
-                            {/* head */}
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>NO.</th>
-                                    <th>Title</th>
-                                    <th>Subject</th>
-                                    <th>Posted Date</th>
-                                    <th>Submition Date</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
+                {/*Asignment table */}
+                <div className="w-full h-124 overflow-scroll rounded-xl hover:shadow-lg shadow-sky-200">
+                    <table className="table bg-base-100 w-full">
+                        {/* head */}
+                        <thead className="sticky top-0 z-10 bg-base-200">
+                            <tr>
+                                <th></th>
+                                <th>NO.</th>
+                                <th>Title</th>
+                                <th>Subject</th>
+                                <th>Posted Date</th>
+                                <th>Submition Date</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody >
+                            {filteredExams.map(e => (
+                                <tr className="hover:bg-[rgba(255,255,255,0.1)]" key={e.id}>
+                                    <td></td>
+                                    <td>{e.id}</td>
+                                    <td>{e.title}</td>
+                                    <td>{e.subject}</td>
+                                    <td>{e.postedDate}</td>
+                                    <td>{e.submitionDate}</td>
+                                    <td>{e.status}</td>
+                                    <td>
+                                        <button className="btn btn-soft btn-primary mx-2 my-1">
+                                            <FontAwesomeIcon icon={faEye} /> View
+                                        </button>
+                                        <button className="btn btn-soft btn-success mx-2 my-1">
+                                            <FontAwesomeIcon icon={faPenToSquare} /> Edit
+                                        </button>
+                                        <button className="btn btn-soft btn-warning mx-2 my-1">
+                                            <FontAwesomeIcon icon={faTrashCan} /> Delete
+                                        </button>
+                                    </td>
                                 </tr>
-                            </thead>
-                            <tbody >
-                                {filteredExams.map(e => (
-                                    <tr className="hover:bg-[rgba(255,255,255,0.1)]" key={e.id}>
-                                        <td></td>
-                                        <td>{e.id}</td>
-                                        <td>{e.title}</td>
-                                        <td>{e.subject}</td>
-                                        <td>{e.postedDate}</td>
-                                        <td>{e.submitionDate}</td>
-                                        <td>{e.status}</td>
-                                        <td>
-                                            <button className="btn btn-soft btn-primary mx-2 my-1">
-                                                <FontAwesomeIcon icon={faEye} /> View
-                                            </button>
-                                            <button className="btn btn-soft btn-success mx-2 my-1">
-                                                <FontAwesomeIcon icon={faPenToSquare} /> Edit
-                                            </button>
-                                            <button className="btn btn-soft btn-warning mx-2 my-1">
-                                                <FontAwesomeIcon icon={faTrashCan} /> Delete
-                                            </button>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-
+                            ))}
+                        </tbody>
+                    </table>
                 </div>
-
             </div>
-
-        </div >
+        </div>
     )
 } 

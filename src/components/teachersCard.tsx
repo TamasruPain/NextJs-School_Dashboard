@@ -58,10 +58,10 @@ export default function TeachersCard({ urlData }: { urlData: string }) {
                     </h1>
 
                 </div>
-                <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-5 p-5
+                <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-5 p-4
                 ">
                     {events.slice(0, 6).map(events => (
-                        <div className="bg-base-100 p-2.5 card hover:shadow shadow-blue-500" key={events.id}>
+                        <div className="bg-base-100 card hover:shadow shadow-blue-500" key={events.id}>
                             <div>
                                 <span className="text-zinc-300 float-end">{events.status}</span>
                             </div>

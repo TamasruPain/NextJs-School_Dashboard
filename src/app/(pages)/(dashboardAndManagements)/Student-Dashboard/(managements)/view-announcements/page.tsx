@@ -26,7 +26,7 @@ export default function ViewAnnoucements() {
 
 
     return (
-        <div className="min-h-screen">
+        <div className="h-screen">
             <div className="p-2 ">
                 <div className="p-4">
                     <h1 className="text-2xl">
@@ -51,37 +51,36 @@ export default function ViewAnnoucements() {
                     </div>
                 </div>
 
-                {/* Events table */}
-                <div className=" p-2 w-full ">
-                    <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 p-2">
-                        {filteredAnnoucement.map(e => (
-                            <div className="bg-base-100 p-3 card hover:shadow shadow-blue-500" key={e.id}>
-                                <div className="flex items-center justify-between my-1">
-                                    <h1>{e.title}</h1>
-                                    <span className="text-zinc-300">{e.time}</span>
-                                </div>
-                                <p className="text-zinc-400">{e.description}</p>
-                                <div className="flex items-end justify-end">
-                                    <a href="#my_modal_8" className="btn btn-soft btn-primary mx-2 my-1">
-                                        <FontAwesomeIcon icon={faEye} /> View
-                                    </a>
-                                    <div className="modal" role="dialog" id="my_modal_8">
-                                        <div className="modal-box">
-                                            <h3 className="font-bold text-lg">Hello!</h3>
-                                            <p className="py-4">Press ESC key or click the button below to close</p>
-                                            <div className="modal-action">
-                                                <a href="#" className="btn">Close!</a>
+                <div className="w-full h-140 rounded-xl overflow-scroll bg-zinc-700 hover:shadow-lg shadow-sky-200">
+                    <div className=" p-2 w-full ">
+                        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 p-2">
+                            {filteredAnnoucement.map(e => (
+                                <div className="bg-base-100 p-3 card hover:shadow shadow-blue-500" key={e.id}>
+                                    <div className="flex items-center justify-between my-1">
+                                        <h1>{e.title}</h1>
+                                        <span className="text-zinc-300">{e.time}</span>
+                                    </div>
+                                    <p className="text-zinc-400">{e.description}</p>
+                                    <div className="flex items-end justify-end">
+                                        <a href="#my_modal_8" className="btn btn-soft btn-primary mx-2 my-1">
+                                            <FontAwesomeIcon icon={faEye} /> View
+                                        </a>
+                                        <div className="modal" role="dialog" id="my_modal_8">
+                                            <div className="modal-box">
+                                                <h3 className="font-bold text-lg">Hello!</h3>
+                                                <p className="py-4">Press ESC key or click the button below to close</p>
+                                                <div className="modal-action">
+                                                    <a href="#" className="btn">Close!</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
                 </div>
-
             </div>
-
         </div >
     )
 } 

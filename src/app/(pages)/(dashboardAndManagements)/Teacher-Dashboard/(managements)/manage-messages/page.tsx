@@ -26,15 +26,14 @@ export default function ManageMessages() {
 
 
     return (
-        <div className="min-h-screen">
-            <div className="p-2 ">
-                <div className="p-4">
-                    <h1 className="text-2xl">
-                        <FontAwesomeIcon icon={faCommentDots} /> Manage Messages
-                    </h1>
-
+        <div className="h-screen">
+            <div className="p-4">
+                <h1 className="text-2xl p-2">
+                    <FontAwesomeIcon icon={faCommentDots} /> Manage Messages
+                </h1>
+                <div className="p-2 ">
                     {/* search bar */}
-                    <div className="flex items-center justify-center mt-5 gap-3">
+                    <div className="flex items-center justify-center mt-2 gap-3">
                         <input
                             type="search"
                             className="input bg-zinc-700 text-white placeholder:text-gray-400 hover:shadow-md shadow-sky-400 w-64 p-2 rounded"
@@ -49,11 +48,14 @@ export default function ManageMessages() {
                             Clear
                         </button>
                     </div>
+                    <h1 className="text-lg">
+                        Messages ( {messages.length} )
+                    </h1>
                 </div>
 
-                {/* Events table */}
-                <div className=" p-2 w-full ">
-                    <div className="flex flex-col gap-4 p-4">
+                {/* Message List */}
+                <div className=" hover:shadow-lg shadow-sky-200">
+                    <div className="flex flex-col gap-4 p-4 bg-zinc-700 w-full h-138 overflow-scroll rounded-xl">
                         {filteredMassages.map(e => (
                             <div className="bg-base-100 p-3 card hover:shadow shadow-blue-500" key={e.id}>
                                 <div className="flex items-center justify-between">

@@ -14,6 +14,8 @@ const lessons = [
     { id: 5, title: "Topic_5", subject: "Life Science", teacher: "Mis. teach five", date: "2023-10-01", time: "10:00 AM", duration: "1 hour", status: "completed" },
     { id: 6, title: "topic_7", subject: "Bengla", teacher: "Mr.teach six", date: "2023-10-01", time: "10:00 AM", duration: "1 hour", status: "completed" },
     { id: 7, title: "topic_9", subject: "English", teacher: "Mr. teach seven", date: "2023-10-01", time: "10:00 AM", duration: "1 hour", status: "completed" },
+    { id: 8, title: "topic_9", subject: "English", teacher: "Mr. teach seven", date: "2023-10-01", time: "10:00 AM", duration: "1 hour", status: "completed" },
+    { id: 9, title: "topic_9", subject: "English", teacher: "Mr. teach seven", date: "2023-10-01", time: "10:00 AM", duration: "1 hour", status: "completed" },
 ]
 
 export default function ManageLessons() {
@@ -26,16 +28,14 @@ export default function ManageLessons() {
 
 
     return (
-        <div className="min-h-screen">
-            <div className="p-2 ">
-
-                <div className="p-4">
-                    <h1 className="text-2xl">
-                        <FontAwesomeIcon icon={faBook} /> Lessons Management
-                    </h1>
-
+        <div className="h-screen">
+            <div className="p-4">
+                <h1 className="text-2xl p-2">
+                    <FontAwesomeIcon icon={faBook} /> Lessons Management
+                </h1>
+                <div className="p-2 ">
                     {/* search bar */}
-                    <div className="flex items-center justify-center mt-5 gap-3">
+                    <div className="flex items-center justify-center mt-2 gap-3">
                         <input
                             type="search"
                             className="input bg-zinc-700 text-white placeholder:text-gray-400 hover:shadow-md shadow-sky-400 w-64 p-2 rounded"
@@ -51,8 +51,8 @@ export default function ManageLessons() {
                         </button>
                     </div>
                     {/* add button */}
-                    <div className="flex items-center justify-between mt-5 ">
-                        <h1 className="text-2xl">All Lessons</h1>
+                    <div className="flex items-center justify-between mt-4 ">
+                        <h1 className="text-lg">Lessons ( {lessons.length}  ) </h1>
                         <a href="#my_modal_8" className="btn btn-soft">
                             <FontAwesomeIcon icon={faSquarePlus} /> Add new Lessons
                         </a>
@@ -83,12 +83,11 @@ export default function ManageLessons() {
                     </div>
                 </div>
 
-                {/* students table */}
-                <div className=" p-2 w-full ">
-                    <div className="overflow-x-auto rounded-xl hover:shadow-lg shadow-sky-200">
-                        <table className="table bg-base-100">
-                            {/* head */}
-                            <thead>
+                {/* Lessons table */}
+                <div className="w-full h-124 overflow-scroll rounded-xl hover:shadow-lg shadow-sky-200">
+                    <table className="table bg-base-100 w-full">
+                        {/* head */}
+                        <thead className="sticky top-0 z-10 bg-base-200">
                                 <tr>
                                     <th></th>
                                     <th>NO.</th>
@@ -130,11 +129,7 @@ export default function ManageLessons() {
                             </tbody>
                         </table>
                     </div>
-
                 </div>
-
             </div>
-
-        </div >
     )
 } 

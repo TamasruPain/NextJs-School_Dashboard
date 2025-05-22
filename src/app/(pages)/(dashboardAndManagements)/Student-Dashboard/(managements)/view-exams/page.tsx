@@ -14,6 +14,8 @@ const exams = [
     { id: 5, title: "Life Science Exam", subject: "Life Science", date: "2023-10-01", time: "10:00 AM", duration: "2 hours", status: "Scheduled" },
     { id: 6, title: "Bengla Exam", subject: "Bengla", date: "2023-10-01", time: "10:00 AM", duration: "2 hours", status: "Scheduled" },
     { id: 7, title: "English Exam", subject: "English", date: "2023-10-01", time: "10:00 AM", duration: "2 hours", status: "Scheduled" },
+    { id: 8, title: "English Exam", subject: "English", date: "2023-10-01", time: "10:00 AM", duration: "2 hours", status: "Scheduled" },
+    { id: 9, title: "English Exam", subject: "English", date: "2023-10-01", time: "10:00 AM", duration: "2 hours", status: "Scheduled" },
 ]
 
 export default function ManageExams() {
@@ -52,58 +54,54 @@ export default function ManageExams() {
                 </div>
 
                 {/* students table */}
-                <div className=" p-2 w-full ">
-                    <div className="overflow-x-auto rounded-xl hover:shadow-lg shadow-sky-200">
-                        <table className="table bg-base-100">
-                            {/* head */}
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>NO.</th>
-                                    <th>Title</th>
-                                    <th>Subject</th>
-                                    <th>Date</th>
-                                    <th>Time</th>
-                                    <th>Duration</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody >
-                                {filteredExams.map(e => (
-                                    <tr className="hover:bg-[rgba(255,255,255,0.1)]" key={e.id}>
-                                        <td></td>
-                                        <td>{e.id}</td>
-                                        <td>{e.title}</td>
-                                        <td>{e.subject}</td>
-                                        <td>{e.date}</td>
-                                        <td>{e.time}</td>
-                                        <td>{e.duration}</td>
-                                        <td>{e.status}</td>
-                                        <td>
-                                            <a href="#my_modal_8" className="btn btn-soft btn-primary mx-2 my-1">
-                                                <FontAwesomeIcon icon={faEye} /> View
-                                            </a>
-                                            <div className="modal" role="dialog" id="my_modal_8">
-                                                <div className="modal-box">
-                                                    <h3 className="font-bold text-lg">Hello!</h3>
-                                                    <p className="py-4">Press ESC key or click the button below to close</p>
-                                                    <div className="modal-action">
-                                                        <a href="#" className="btn">Close!</a>
-                                                    </div>
+                {/* Lessons table */}
+                <div className="w-full h-140 overflow-scroll rounded-xl hover:shadow-lg shadow-sky-200">
+                    <table className="table bg-base-100 w-full">
+                        {/* head */}
+                        <thead className="sticky top-0 z-10 bg-base-200">
+                            <tr>
+                                <th></th>
+                                <th>NO.</th>
+                                <th>Title</th>
+                                <th>Subject</th> 
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Duration</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody >
+                            {filteredExams.map(e => (
+                                <tr className="hover:bg-[rgba(255,255,255,0.1)]" key={e.id}>
+                                    <td></td>
+                                    <td>{e.id}</td>
+                                    <td>{e.title}</td>
+                                    <td>{e.subject}</td>
+                                    <td>{e.date}</td>
+                                    <td>{e.time}</td>
+                                    <td>{e.duration}</td>
+                                    <td>{e.status}</td>
+                                    <td>
+                                        <a href="#my_modal_8" className="btn btn-soft btn-primary mx-2 my-1">
+                                            <FontAwesomeIcon icon={faEye} /> View
+                                        </a>
+                                        <div className="modal" role="dialog" id="my_modal_8">
+                                            <div className="modal-box">
+                                                <h3 className="font-bold text-lg">Hello!</h3>
+                                                <p className="py-4">Press ESC key or click the button below to close</p>
+                                                <div className="modal-action">
+                                                    <a href="#" className="btn">Close!</a>
                                                 </div>
                                             </div>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                 </div>
-
             </div>
-
-        </div >
+        </div>
     )
 } 

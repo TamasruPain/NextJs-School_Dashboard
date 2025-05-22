@@ -50,13 +50,13 @@ export default function ParentLoginPage() {
                         </Link>
                         <div className="flex justify-center mt-4">
                             <a href="/forgot-password" className="">
-                                <p>Forgot Password? <span className="text-blue-800"> Click here</span> </p>
+                                <p>Forgot Password? <span className="text-blue-400"> Click here</span> </p>
                             </a>
                         </div>
                         <div>
                             <div className="flex justify-center mt-2">
                                 <Link href="/student-emailForm" className="">
-                                    <p>Having Problem while Login<span className="text-blue-800"> Click here to Report</span></p>
+                                    <p>Having Problem while Login<span className="text-blue-400"> Click here to Report</span></p>
                                 </Link>
                             </div>
                         </div>

@@ -74,7 +74,7 @@ export default function TeacherSideNavbar() {
                         <span>
                             {i.titleIcon}
                         </span>
-                        <span>
+                        <span className="hidden lg:block">
                             {i.title}
                         </span>
                     </Link>

@@ -14,6 +14,8 @@ const exams = [
     { id: 5, title: "Life Science Exam", subject: "Life Science", date: "2023-10-01", time: "10:00 AM", duration: "2 hours", status: "Scheduled" },
     { id: 6, title: "Bengla Exam", subject: "Bengla", date: "2023-10-01", time: "10:00 AM", duration: "2 hours", status: "Scheduled" },
     { id: 7, title: "English Exam", subject: "English", date: "2023-10-01", time: "10:00 AM", duration: "2 hours", status: "Scheduled" },
+    { id: 8, title: "English Exam", subject: "English", date: "2023-10-01", time: "10:00 AM", duration: "2 hours", status: "Scheduled" },
+    { id: 9, title: "English Exam", subject: "English", date: "2023-10-01", time: "10:00 AM", duration: "2 hours", status: "Scheduled" },
 ]
 
 export default function ManageExams() {
@@ -26,15 +28,14 @@ export default function ManageExams() {
 
 
     return (
-        <div className="min-h-screen">
-            <div className="p-2 ">
-                <div className="p-4">
-                    <h1 className="text-2xl">
-                        <FontAwesomeIcon icon={faFilePen} /> Exams Management
-                    </h1>
-
+        <div className="h-screen">
+            <div className="p-4">
+                <h1 className="text-2xl p-2">
+                    <FontAwesomeIcon icon={faFilePen} /> Exams Management
+                </h1>
+                <div className="p-2">
                     {/* search bar */}
-                    <div className="flex items-center justify-center mt-5 gap-3">
+                    <div className="flex items-center justify-center mt-2 gap-3">
                         <input
                             type="search"
                             className="input bg-zinc-700 text-white placeholder:text-gray-400 hover:shadow-md shadow-sky-400 w-64 p-2 rounded"
@@ -50,8 +51,8 @@ export default function ManageExams() {
                         </button>
                     </div>
                     {/* add button */}
-                    <div className="flex items-center justify-between mt-5 ">
-                        <h1 className="text-2xl">All Exams</h1>
+                    <div className="flex items-center justify-between mt-4 ">
+                        <h1 className="text-lg">Exams ( {exams.length} )</h1>
                         <a href="#my_modal_8" className="btn btn-soft">
                             <FontAwesomeIcon icon={faSquarePlus} /> Add new Exam
                         </a>
@@ -83,55 +84,50 @@ export default function ManageExams() {
                 </div>
 
                 {/* students table */}
-                <div className=" p-2 w-full ">
-                    <div className="overflow-x-auto rounded-xl hover:shadow-lg shadow-sky-200">
-                        <table className="table bg-base-100">
-                            {/* head */}
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>NO.</th>
-                                    <th>Title</th>
-                                    <th>Subject</th>
-                                    <th>Date</th>
-                                    <th>Time</th>
-                                    <th>Duration</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
+                <div className="w-full h-124 overflow-scroll rounded-xl hover:shadow-lg shadow-sky-200">
+                    <table className="table bg-base-100 w-full">
+                        {/* head */}
+                        <thead className="sticky top-0 z-10 bg-base-200">
+                            <tr>
+                                <th></th>
+                                <th>NO.</th>
+                                <th>Title</th>
+                                <th>Subject</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Duration</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody >
+                            {filteredExams.map(e => (
+                                <tr className="hover:bg-[rgba(255,255,255,0.1)]" key={e.id}>
+                                    <td></td>
+                                    <td>{e.id}</td>
+                                    <td>{e.title}</td>
+                                    <td>{e.subject}</td>
+                                    <td>{e.date}</td>
+                                    <td>{e.time}</td>
+                                    <td>{e.duration}</td>
+                                    <td>{e.status}</td>
+                                    <td>
+                                        <button className="btn btn-soft btn-primary mx-2 my-1">
+                                            <FontAwesomeIcon icon={faEye} /> View
+                                        </button>
+                                        <button className="btn btn-soft btn-success mx-2 my-1">
+                                            <FontAwesomeIcon icon={faPenToSquare} /> Edit
+                                        </button>
+                                        <button className="btn btn-soft btn-warning mx-2 my-1">
+                                            <FontAwesomeIcon icon={faTrashCan} /> Delete
+                                        </button>
+                                    </td>
                                 </tr>
-                            </thead>
-                            <tbody >
-                                {filteredExams.map(e => (
-                                    <tr className="hover:bg-[rgba(255,255,255,0.1)]" key={e.id}>
-                                        <td></td>
-                                        <td>{e.id}</td>
-                                        <td>{e.title}</td>
-                                        <td>{e.subject}</td>
-                                        <td>{e.date}</td>
-                                        <td>{e.time}</td>
-                                        <td>{e.duration}</td>
-                                        <td>{e.status}</td>
-                                        <td>
-                                            <button className="btn btn-soft btn-primary mx-2 my-1">
-                                                <FontAwesomeIcon icon={faEye} /> View
-                                            </button>
-                                            <button className="btn btn-soft btn-success mx-2 my-1">
-                                                <FontAwesomeIcon icon={faPenToSquare} /> Edit
-                                            </button>
-                                            <button className="btn btn-soft btn-warning mx-2 my-1">
-                                                <FontAwesomeIcon icon={faTrashCan} /> Delete
-                                            </button>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-
+                            ))}
+                        </tbody>
+                    </table>
                 </div>
-
             </div>
-
-        </div >
+        </div>
     )
 } 
