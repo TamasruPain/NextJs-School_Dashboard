@@ -14,10 +14,10 @@ import AssignmentsCard from "@/components/assignmentCard";
 
 export default function ParentDashboardPage() {
 
-    const LocalParentsClassesUrl = "/parent-Dashboard/manage-classes";
-    const LocalParentsAnnouncementUrl = "/parent-Dashboard/manage-announcements";
-    const LocalParentsLessonsUrl = "/parent-Dashboard/manage-lessons";
-    const LocalParentsAssignmentsUrl = "/parent-Dashboard/manage-assignments";
+    const LocalParentsClassesUrl = "/Parent-Dashboard/view-classes";
+    const LocalParentsAnnouncementUrl = "/Parent-Dashboard/view-announcements";
+    const LocalParentsLessonsUrl = "/Parent-Dashboard/view-lessons";
+    const LocalParentsAssignmentsUrl = "/Parent-Dashboard/view-assignments";
     return (
         <div >
             {/* Box-1: Heading of dashboard */}
@@ -29,7 +29,7 @@ export default function ParentDashboardPage() {
                     </h1>
                 </div>
                 <div className="flex sm:w-[40%] md:w-[20%] lg:w-[20%] xl:w-[8%] p-4 gap-5 ">
-                    <Link href='Parent-Dashboard/manage-announcements' className="indicator btn btn-circle btn-soft float-end hover:shadow-2xl shadow-sky-100">
+                    <Link href='Parent-Dashboard/view-announcements' className="indicator btn btn-circle btn-soft float-end hover:shadow-2xl shadow-sky-100">
                         <FontAwesomeIcon icon={faBullhorn} style={{ fontSize: "15px" }} />
                         <span className="indicator-item badge badge-primary">12</span>
                     </Link>
